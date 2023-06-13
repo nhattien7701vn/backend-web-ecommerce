@@ -1,5 +1,5 @@
 CREATE TABLE "product" (
-  "id" integer,
+  "id" integer PRIMARY KEY,
   "name" varchar,
   "desc" varchar,
   "category_id" integer,
