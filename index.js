@@ -11,11 +11,11 @@ client.connect(function (err) {
   console.log("Connected!");
 });
 
-client.query(`Select * from company`, (err, res) =>{
-  if(!err){
+client.query(`Select * from category`, (err, res) => {
+  if (!err) {
     console.log(res.rows);
-  }else{
-    console.log(err.message);
+  } else {
+    console.log("Error occured: ", err.message);
   }
   client.end;
 })
