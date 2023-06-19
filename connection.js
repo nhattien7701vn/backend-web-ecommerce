@@ -5,6 +5,6 @@ const client = new Client({
   user: 'postgres',
   password: '1234',
   database: 'test',
-}) 
+})
 
 module.exports = client;
