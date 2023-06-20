@@ -117,9 +117,9 @@ app.get('/products/:id', function (req, res) {
 //CREATE NEW PRODUCT
 app.post('/products', (req, res) => {
   const product = req.body;
-  let insertQuery = `insert into product (id, name, uri, description, category_id, price, created_at, modified_at)
+  let insertQuery = `insert into product (id, name, uri, description, image_source, category_id, price, created_at, modified_at)
                      values
-                     ('${product.id}', '${product.name}', '${product.uri}', '${product.description}', '${product.category_id}', '${product.price}', ${product.created_at}, ${product.modified_at});`
+                     ('${product.id}', '${product.name}', '${product.uri}', '${product.description}', '${product.image_source}', '${product.category_id}', '${product.price}', ${product.created_at}, ${product.modified_at});`
   client.query(insertQuery, (err, result) => {
     if (!err) {
       res.send('Insertion was successful')
@@ -134,9 +134,10 @@ app.put('/products/:id', (req, res) => {
   let product = req.body;
   let updateQuery = `update product
                      set name = '${product.name}',
+                     category_id = '${product.category_id}',
                      uri = '${product.uri}',
                      description = '${product.description}',
-                     category_id = '${product.category_id}',
+                     image_source = '${product.image_source}',
                      price = '${product.price}',
                      modified_at = ${product.modified_at}
                      where id = '${product.id}'`

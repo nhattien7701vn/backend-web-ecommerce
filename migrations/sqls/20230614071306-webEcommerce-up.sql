@@ -35,11 +35,11 @@ VALUES('dh01', 'Dong Ho', 'dong-ho', 'dong ho', 1686727208, 1686727209);
 
 INSERT INTO public.category
 (id, name, uri, description, created_at, modified_at)
-VALUES('tb01', 'Tablet', 'tablet', 'tablet', 1686727204, 1686727205);
+VALUES('tb01', 'Tablet', 'may-tinh-bang', 'tablet', 1686727204, 1686727205);
 
 INSERT INTO public.category
 (id, name, uri, description, created_at, modified_at)
-VALUES('mb01', 'Macbook', 'macbook', 'macbook', 1686727206, 1686727207);
+VALUES('mb01', 'Macbook', 'laptop', 'macbook', 1686727206, 1686727207);
 
 INSERT INTO public.category
 (id, name, uri, description, created_at, modified_at)
