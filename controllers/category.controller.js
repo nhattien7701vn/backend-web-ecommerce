@@ -1,9 +1,8 @@
-const client = require('../connection.js')
+const postgre = require('../connection')
 const categoryController = {
-
   //GET ALL CATEGORY
   get: (req, res) => {
-    client.query(`select * from category`, (err, result) => {
+    postgre.query(`select * from category`, (err, result) => {
       if (!err) {
         res.send(result.rows)
       } else if (err) {
@@ -15,7 +14,7 @@ const categoryController = {
 
   //GET CATEGORY BY ID
   get: (req, res) => {
-    client.query(`Select * from category where id = '${req.params.id}'`, (err, result) => {
+    postgre.query(`Select * from category where id = '${req.params.id}'`, (err, result) => {
       if (!err) {
         res.send(result.rows)
       } else if (err) {
@@ -31,13 +30,13 @@ const categoryController = {
     let insertQuery = `insert into category (id, name, uri, description, created_at, modified_at)
                        values
                        ('${category.id}', '${category.name}', '${category.uri}', '${category.description}', ${category.created_at}, ${category.modified_at});`
-    client.query(insertQuery, (err, result) => {
+    postgre.query(insertQuery, (err, result) => {
       if (!err) {
         res.send('Insertion was successful')
       }
       else { console.log(err.message) }
     })
-    client.end;
+    postgre.end;
   },
 
   //UPDATE CATEGORY BY ID
@@ -50,25 +49,25 @@ const categoryController = {
                        modified_at = ${category.modified_at}
                        where id = '${category.id}'`
 
-    client.query(updateQuery, (err, result) => {
+    postgre.query(updateQuery, (err, result) => {
       if (!err) {
         res.send('Update was successful')
       }
       else { console.log(err.message) }
     })
-    client.end;
+    postgre.end;
   },
 
   //DELETE CATEGORY BY ID
   delete: (req, res) => {
     let insertQuery = `delete from category where id = '${req.params.id}'`
-    client.query(insertQuery, (err, result) => {
+    postgre.query(insertQuery, (err, result) => {
       if (!err) {
         res.send('Deletion was successful')
       }
       else { console.log(err.message) }
     })
-    client.end;
+    postgre.end;
   }
 }
 module.exports = categoryController

@@ -1,15 +1,17 @@
-const client = require('./connection.js')
+// const client = require('./connection.js')
 // const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
+require('dotenv').config()
 app.use(cors());
 app.use(express.json());
 
-const bookRouter = require('./routes/book.router')
+const categoryRouter = require('./routes/category.router')
+app.use("/api/v1/categoris", categoryRouter)
+const productRouter = require('./routes/product.router')
+app.use("/api/v1/products", productRouter)
 
-app.use("/api/v1/books", bookRouter)
 app.listen(process.env.PORT, () => console.log("Server is running on port 5000"))
 
 // //HOME
