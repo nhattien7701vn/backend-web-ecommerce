@@ -15,16 +15,16 @@ const productController = {
   },
 
   //GET PRODUCT BY ID
-  get: (req, res) => {
-    postgre.query(`Select * from product where id = '${req.params.id}'`, (err, result) => {
-      if (!err) {
-        res.send(result.rows)
-      } else if (err) {
-        res.send(err.message)
-      };
-    })
-    console.log("GET request for the homepage");
-  },
+  // get: (req, res) => {
+  //   postgre.query(`Select * from product where id = '${req.params.id}'`, (err, result) => {
+  //     if (!err) {
+  //       res.send(result.rows)
+  //     } else if (err) {
+  //       res.send(err.message)
+  //     };
+  //   })
+  //   console.log("GET request for the homepage");
+  // },
 
   //CREATE NEW PRODUCT
   post: (req, res) => {
