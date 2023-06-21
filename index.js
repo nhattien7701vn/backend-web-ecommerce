@@ -8,9 +8,9 @@ app.use(cors());
 app.use(express.json());
 
 const categoryRouter = require('./routes/category.router')
-app.use("/api/v1/categories", categoryRouter)
+app.use("/categories", categoryRouter)
 const productRouter = require('./routes/product.router')
-app.use("/api/v1/products", productRouter)
+app.use("/products", productRouter)
 
 app.listen(process.env.PORT, () => console.log("Server is running on port 5000"))
 
