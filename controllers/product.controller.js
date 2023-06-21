@@ -3,7 +3,7 @@ const productController = {
   //PRODUCT 
 
   //GET ALL PRODUCT
-  get: (req, res) => {
+  getAllProduct: (req, res) => {
     postgre.query(`select * from product`, (err, result) => {
       if (!err) {
         res.send(result.rows)
@@ -14,17 +14,17 @@ const productController = {
     console.log("GET request for the homepage");
   },
 
-  //GET PRODUCT BY ID
-  // get: (req, res) => {
-  //   postgre.query(`Select * from product where id = '${req.params.id}'`, (err, result) => {
-  //     if (!err) {
-  //       res.send(result.rows)
-  //     } else if (err) {
-  //       res.send(err.message)
-  //     };
-  //   })
-  //   console.log("GET request for the homepage");
-  // },
+  // GET PRODUCT BY ID
+  getProductById: (req, res) => {
+    postgre.query(`Select * from product where id = '${req.params.id}'`, (err, result) => {
+      if (!err) {
+        res.send(result.rows)
+      } else if (err) {
+        res.send(err.message)
+      };
+    })
+    console.log("GET request for the homepage");
+  },
 
   //CREATE NEW PRODUCT
   post: (req, res) => {

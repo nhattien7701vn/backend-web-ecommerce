@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 const categoryRouter = require('./routes/category.router')
-app.use("/api/v1/categoris", categoryRouter)
+app.use("/api/v1/categories", categoryRouter)
 const productRouter = require('./routes/product.router')
 app.use("/api/v1/products", productRouter)
 
