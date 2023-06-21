@@ -2,6 +2,7 @@ const postgre = require('../connection')
 const categoryController = {
   //GET ALL CATEGORY
   get: (req, res) => {
+    console.log("GET ALL ")
     postgre.query(`select * from category`, (err, result) => {
       if (!err) {
         res.send(result.rows)
