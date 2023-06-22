@@ -9,8 +9,13 @@ app.use(express.json());
 
 const categoryRouter = require('./routes/category.router')
 app.use("/categories", categoryRouter)
+
+const subCategoryRouter = require('./routes/sub_category.router')
+app.use("/subcategories", subCategoryRouter)
+
 const productRouter = require('./routes/product.router')
 app.use("/products", productRouter)
+
 
 app.listen(process.env.PORT, () => console.log("Server is running on port 5000"))
 
